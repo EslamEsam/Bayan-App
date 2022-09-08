@@ -1,9 +1,11 @@
 import 'package:app/views/about_view/about_view.dart';
 import 'package:app/views/ad3ea_view/ad3ea_view.dart';
 import 'package:app/views/azkar_view/azkar_view.dart';
+import 'package:app/views/azkar_view/navigation_azkar.dart';
 import 'package:app/views/home_view/first_view.dart';
 import 'package:app/views/quraan_view/quraan_view.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../src/app_color.dart';
@@ -14,17 +16,29 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+
+
+
   int _page = 2;
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   List<Widget> viwes = [
     Ad3eaView(),
-    AzkarView(),
+    NavigationAzkar(),
     FirstView(),
     QuraanView(),
     AboutView(),
 
 
   ];
+
+  void initState() {
+    // TODO: implement initState
+    _page = 2;
+    if (kDebugMode) {
+      print("Hoooooome");
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

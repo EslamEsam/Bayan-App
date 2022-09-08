@@ -12,34 +12,45 @@ class ZekrView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      scrollDirection: Axis.horizontal,
-      itemCount: azkar.length,
-      //cubit.categories.length,
-      itemBuilder: (BuildContext context, int index) => GestureDetector(
+    return Scaffold(
+      body: Column(
+        children: [
+          Center(
+            child: Column(
+              children: [
+                Text("اذكار "),
+                Expanded(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: azkar.length,
+                    //cubit.categories.length,
+                    itemBuilder: (BuildContext context, int index) => GestureDetector(
 
-        child: Card(
+                      child: Card(
 
-          color: AppColors.KPrimaryGrayColor,
-          child: Column(
-            children: [
+                        color: AppColors.KPrimaryGrayColor,
+                        child: Column(
+                          children: [
 
-              Image.asset(
-                'assets/images/logo.png',
-                height: SizeConfig.defaultSize!*10,),
-
-              Text(
-                'name',
-                style: TextStyle(
-                  fontSize: SizeConfig.defaultSize!*3,
-                  //fontWeight: FontWeight.bold[400],
+                            Text(
+                              'name',
+                              style: TextStyle(
+                                fontSize: SizeConfig.defaultSize!*3,
+                                //fontWeight: FontWeight.bold[400],
+                              ),
+                              //'${cubit.categories[index].name}'
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-                //'${cubit.categories[index].name}'
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
